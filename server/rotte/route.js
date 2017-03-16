@@ -6,16 +6,17 @@ module.exports =function(app,express) {
     app.use(bodyparser.json());
 
     app.use('/bootstrap',express.static(path.join(__dirname, "..","..","node_modules","bootstrap","dist")));
+
 //ROTTE STATICHE
 
     //angular
-    app.use('/angular',express.static(path.join(__dirname, "..","..","node_modules","angular","dist")));
+    app.use('/angular',express.static(path.join(__dirname, "..","..","node_modules","angular")));
     //angular-ui-router
-    app.use('/angular-ui-router',express.static(path.join(__dirname, "..","..","node_modules","angular-ui-router","dist")));
+    app.use('/angular-ui-router',express.static(path.join(__dirname, "..","..","node_modules","angular-ui-router")));
     //js
-    app.use('/js',express.static(path.join(__dirname, "..","..","node_modules","js")));
+    app.use('/js',express.static(path.join(__dirname, "..","..","client","js")));
     //css
-    app.use('/css',express.static(path.join(__dirname, "..","..","node_modules","css")));
+    app.use('/css',express.static(path.join(__dirname, "..","..","client","css")));
     //jquery
     app.use('/jquery',express.static(path.join(__dirname, "..","..","node_modules","jquery","dist")));
 
