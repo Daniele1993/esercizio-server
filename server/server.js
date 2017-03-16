@@ -3,9 +3,13 @@ var app=express();
 const PORT = 3000;
 
 
+//connessione al database
 require('./config/database/database.js');
 
+require('./rotte/route.js')(app,express);
 
+
+//start del server
 app.listen(PORT,function(){
     console.log('app start at http://localhost' + PORT);
-})
+});
