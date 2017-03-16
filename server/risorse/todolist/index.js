@@ -9,7 +9,7 @@ router.post('/',todo.createTodo);
 router.get('/',todo.getTodo);
 
 //cancella un todo
-router.delete('/',todo.deleteTodo);
+router.delete('/:id([0-9a-f]{24})',todo.deleteTodo);
     
 
     
