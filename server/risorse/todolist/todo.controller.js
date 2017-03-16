@@ -1,3 +1,6 @@
+var mongoose =require('mongoose');
+var todo =require('./todo.model.js');
+
 module.exports=(function(){
 
     var getTodo= function(req,res){
@@ -5,12 +8,16 @@ module.exports=(function(){
     }
 
     var deleteTodo=function(req,res){
-        
 
+    }
+
+    var createTodo=function(req,res){
+        
     }
 
     return{
         getTodo:getTodo,
-        deleteTodo:deleteTodo
+        deleteTodo:deleteTodo,
+        createTodo:createTodo
     }
 })();
