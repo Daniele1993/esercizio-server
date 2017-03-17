@@ -32,9 +32,17 @@ angular.module('app').service('todoSrv',function($http){
          });
 
      }
+
+     var deleteTodo=function(){
+         return $http({
+             method:'DELETE',
+             url:'http://localhost:' + PORT +'/api/dbcompleto',
+         })
+     }
     
     return{
         getTodo:getTodo,
-        creaTodo:creaTodo
+        creaTodo:creaTodo,
+        deleteTodo:deleteTodo
     }
 })

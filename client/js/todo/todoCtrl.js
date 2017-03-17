@@ -10,12 +10,15 @@ angular.module('app').controller('todoCtrl',function($scope,todoSrv,$state){
     });
     
     $scope.crea=function(){
-        console.log($scope.nuovo);
+        
         todoSrv.creaTodo($scope.nuovo)
                .then(function(data){
-                   console.log(data);
-                   $scope.nuovo="";
-        });
+                   // serve per pulire la form
+                   $scope.nuovo=""; 
+                   return todoSrv.getTodo()
+        }).then(function(data){
+            $scope.lista = data;
+        })
     }
     
 });
