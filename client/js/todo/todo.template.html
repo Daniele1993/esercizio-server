@@ -1,1 +1,18 @@
-<h1>{{titolo}}</h1>
+ <form ng-submit="crea()" novalidate>
+ <div class="form-group">
+    <label for="titolo">Titolo</label>
+    <input type="text" class="form-control" id="titolo" placeholder="inserisci un titolo" ng-model="nuovo.titolo">
+  </div>
+   <div class="form-group">
+    <label for="descrizione">Descrizione</label>
+    <input type="text" class="form-control" id="descrizione" placeholder="inserisci la descrizione" ng-model="nuovo.descrizione">
+  </div>
+<button class="btn btn-primary">Crea</button>
+</form>
+
+
+<div ng-repeat="todo in lista">   
+<p>{{todo.titolo}}</p>
+<p>{{todo.descrizione}}</p>
+<input type="checkbox" ng-checked="todo.fatto" >
+ </div>
