@@ -12,9 +12,11 @@
 </form>
 
 
-<div ng-repeat="todo in lista">   
-<input type="checkbox" ng-checked="todo.fatto" >
+<div ng-repeat="todo in lista | orderBy:'_id':true"> <!--ordina gli id per data-->
+<input type="date" ng-model="todo.data">
+<input type="checkbox" ng-checked="todo.fatto" ng-model="todo.fatto" ng-change="update(todo._id,todo.fatto)" >
 <button class="btn btn-danger" ng-click="elimina(todo._id)">Elimina</button>
 <h4>{{todo.titolo}}</h4>
 <h4>{{todo.descrizione}}</h4>
+<hr>{{todo.data}}
  </div>

@@ -35,9 +35,19 @@ module.exports=(function(){
              });
     }
 
+    var updateTodo =function(req,res){
+        todo.findByIdAndUpdate(req.params.id)
+        .then(function(data){
+            res.status(200).json(data);
+        }).catch(function(err){
+            res.status(500).json(err);
+        })
+    }
+
     return{
         getTodo:getTodo,
         deleteTodo:deleteTodo,
-        createTodo:createTodo
+        createTodo:createTodo,
+        updateTodo:updateTodo
     }
 })();

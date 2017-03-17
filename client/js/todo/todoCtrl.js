@@ -6,15 +6,17 @@ angular.module('app').controller('todoCtrl',function($scope,todoSrv,$state){
     $scope.lista =[];
     todoSrv.getTodo().then(function(data){
         $scope.lista = data;
+        $scope.lista.forEach(function(el){
+            el.data = new Date(el.data);
+        })
         
     });
     
     $scope.crea=function(){
-        
         todoSrv.creaTodo($scope.nuovo)
                .then(function(data){
                    // serve per pulire la form
-                   $scope.nuovo=""; 
+                   $scope.nuovo={}; 
                    return todoSrv.getTodo()
         }).then(function(data){
             $scope.lista = data;
@@ -27,6 +29,14 @@ angular.module('app').controller('todoCtrl',function($scope,todoSrv,$state){
                    }).then(function(data){
                        $scope.lista = data;
                    });
+    }
+    $scope.update=function(id,fatto){
+        todoSrv.updateTodo(id,fatto)
+          .then(function(data){
+            return todoSrv.getTodo()
+        }).then(function(data){
+            $scope.lista = data;
+        });
     }
     
 });

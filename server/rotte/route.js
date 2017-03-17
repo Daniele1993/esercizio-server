@@ -11,6 +11,12 @@ module.exports =function(app,express) {
 
     //angular
     app.use('/angular',express.static(path.join(__dirname, "..","..","node_modules","angular")));
+    //angular-aria
+    app.use('/angular-aria',express.static(path.join(__dirname, "..","..","node_modules","angular-aria")));
+    //angular-material
+    app.use('/angular-material',express.static(path.join(__dirname, "..","..","node_modules","angular-material")));
+    //angular-animate
+    app.use('/angular-animate',express.static(path.join(__dirname, "..","..","node_modules","angular-animate")));
     //angular-ui-router
     app.use('/angular-ui-router',express.static(path.join(__dirname, "..","..","node_modules","angular-ui-router")));
     //js
