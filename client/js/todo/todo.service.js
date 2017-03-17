@@ -33,11 +33,15 @@ angular.module('app').service('todoSrv',function($http){
 
      }
 
-     var deleteTodo=function(){
+     var deleteTodo=function(id){
          return $http({
              method:'DELETE',
-             url:'http://localhost:' + PORT +'/api/dbcompleto',
-         })
+             url:'http://localhost:' + PORT +'/api/dbcompleto/' + id
+         }).then(function(res){
+             return res.data;
+         }).catch(function(err){
+             return err;
+         });
      }
     
     return{

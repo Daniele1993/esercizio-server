@@ -20,5 +20,13 @@ angular.module('app').controller('todoCtrl',function($scope,todoSrv,$state){
             $scope.lista = data;
         })
     }
+    $scope.elimina=function(id){
+        todoSrv.deleteTodo(id)
+               .then(function(data){
+                   return todoSrv.getTodo()//serve per fa ricoparire la lista dopo l'eliminazione
+                   }).then(function(data){
+                       $scope.lista = data;
+                   });
+    }
     
 });

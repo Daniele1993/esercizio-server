@@ -14,7 +14,7 @@
 
 <div ng-repeat="todo in lista">   
 <input type="checkbox" ng-checked="todo.fatto" >
-<button class="btn btn-danger">Cancella</button>
+<button class="btn btn-danger" ng-click="elimina(todo._id)">Elimina</button>
 <h4>{{todo.titolo}}</h4>
 <h4>{{todo.descrizione}}</h4>
  </div>
